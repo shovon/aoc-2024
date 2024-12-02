@@ -15,9 +15,6 @@ for (const r of right) {
 	rightsCount.set(r, (rightsCount.get(r) ?? 0) + 1);
 }
 
-let sum = 0;
-for (const l of left) {
-	sum += (rightsCount.get(l) ?? 0) * l;
-}
-
-console.log(sum);
+console.log(
+	left.reduce((prev, next) => prev + (rightsCount.get(next) ?? 0) * next, 0)
+);
